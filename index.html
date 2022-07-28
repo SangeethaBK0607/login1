@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Drum kit</title>
+  <link rel="stylesheet" href="C:\Users\Umesh\Desktop\login\public\css\style.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+</head>
+
+<body>
+  <div class="max-width">
+
+
+    <h1 id="title" style="padding-left:400px">Kids Drum 🥁 Kit</h1>
+    <div class="keys">
+
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">hihat</span>
+      </div>
+
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  <audio data-key="65" src="C:\Users\Umesh\Desktop\login\public\sounds\clap.wav"></audio>
+  <audio data-key="83" src=C:\Users\Umesh\Desktop\login\public\sounds\hihat.wav></audio>
+  <audio data-key="68" src="C:\Users\Umesh\Desktop\login\public\sounds\kick.wav"></audio>
+  <audio data-key="70" src="C:\Users\Umesh\Desktop\login\public\sounds\openhat.wav"></audio>
+  <audio data-key="71" src="C:\Users\Umesh\Desktop\login\public\sounds\boom.wav"></audio>
+  <audio data-key="72" src="C:\Users\Umesh\Desktop\login\public\sounds\ride.wav"></audio>
+  <audio data-key="74" src="C:\Users\Umesh\Desktop\login\public\sounds\snare.wav"></audio>
+  <audio data-key="75" src=C:\Users\Umesh\Desktop\login\public\sounds\tink.wav></audio>
+  <audio data-key="76" src=C:\Users\Umesh\Desktop\login\public\sounds\tom.wav></audio>
+
+  <div class="bottom-container">
+    <h2 style="margin-left: 500px" ;>Did u like my work please rate this⭐</h2>
+    <a class="footer-link" href="C:\Users\Umesh\Desktop\login\rating.html" style="padding-left:550px">Please click here😍.</a>
+    <p class="copyright" style="padding-left:600px; margin-top: 2px; margin-bottom: 2px; padding-top: 5px;">© 2022 Sangeeta B K.</p>
+  </div>
+</body>
+<script>
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+</html>
